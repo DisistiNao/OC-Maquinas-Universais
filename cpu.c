@@ -67,8 +67,10 @@ void run(Machine* machine) {
                 RAMContent1 = machine->RAM.items[address1];
                 RAMContent2 = machine->RAM.items[address2];
                 result = 0;
+                
                 for(int i = 0; i < RAMContent2; i++)
                     result += RAMContent1;
+                
                 address3 = instruction.info3;
                 machine->RAM.items[address3] = result;
                 printf("  > Multiplicando RAM[%d] (%f) por RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
@@ -80,12 +82,15 @@ void run(Machine* machine) {
                 RAMContent1 = machine->RAM.items[address1];
                 RAMContent2 = machine->RAM.items[address2];
                 result = 0;
+                
                 float dividendo = RAMContent1;
-                while (dividendo - RAMContent2 > 0)
-                {
-                    dividendo =- RAMContent2;
-                    result++;
+                if(RAMContent1 >= RAMContent2) {
+                    do {
+                        dividendo -= RAMContent2;
+                        result++;
+                    }while(dividendo - RAMContent2 >= 0);
                 }
+                
                 address3 = instruction.info3;
                 machine->RAM.items[address3] = result;
                 printf("  > Dividindo RAM[%d] (%f) por RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
@@ -97,8 +102,13 @@ void run(Machine* machine) {
                 RAMContent1 = machine->RAM.items[address1];
                 RAMContent2 = machine->RAM.items[address2];
                 result = RAMContent1;
-                while (dividendo - RAMContent2 > 0)
-                    result =- RAMContent2;
+                
+                if(RAMContent1 >= RAMContent2) {
+                    do{
+                        result -= RAMContent2;
+                    }while(result >= RAMContent2);
+                }
+                
                 address3 = instruction.info3;
                 machine->RAM.items[address3] = result;
                 printf("  > Resto da Divisão de RAM[%d] (%f) por RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
