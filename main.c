@@ -24,6 +24,18 @@ int main(int argc, char**argv) {
     if (strcmp(argv[1], "random") == 0) {
         ramSize = atoi(argv[2]);
         instructions = generateRandomInstructions(ramSize);
+    } else if (strcmp(argv[1], "multiply") == 0) {
+        ramSize = atoi(argv[2]);
+        instructions = generateMultiplicationInstructions(3, 4);
+    } else if (strcmp(argv[1], "share") == 0) {
+        ramSize = atoi(argv[2]);
+        instructions = generateDivisionInstructions(27, 3);
+    } else if (strcmp(argv[1], "rest") == 0) {
+        ramSize = atoi(argv[2]);
+        instructions = generateRestDivisionInstructions(27, 3);
+    } else if (strcmp(argv[1], "fibo") == 0) {
+        ramSize = atoi(argv[2]);
+        instructions = generateFibonacciInstructions(ramSize);
     } else if (strcmp(argv[1], "file") == 0) {
         instructions = readInstructions(argv[2], &ramSize);
     } 

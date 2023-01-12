@@ -61,6 +61,7 @@ void run(Machine* machine) {
                 printf("  > Subtraindo RAM[%d] (%f) com RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
                                 address1, RAMContent1, address2, RAMContent2, address3, result);
                 break;
+            /*
             case 3: // Multiplicando
                 address1 = instruction.info1;
                 address2 = instruction.info2;
@@ -123,11 +124,13 @@ void run(Machine* machine) {
                 printf("  > Fibonacci RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
                                 address1, RAMContent1, address2, result);
                 break;
+            */
         }
         PC++;
     }
 }
 
+/*
 int fibonacci(int x)
 {
     if(x <= 2)
@@ -135,6 +138,7 @@ int fibonacci(int x)
     else
         return ( fibonacci(x - 1) + fibonacci(x - 2) );
 }
+*/
 
 void printRAM(Machine* machine) {
     printf("  > RAM");
