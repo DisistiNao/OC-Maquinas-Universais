@@ -11,11 +11,6 @@ Instruction* generateRandomInstructions(int ramSize) {
     // 2 => opcode => subtrair
     //-1 => halt
 
-    // 3 => opcode => multiplica
-    // 4 => opcode => divide
-    // 5 => opcode => resto da divisao
-    // 6 => opcode => fibonacci
-    
     // 22 => significa um endereço da RAM (10 endereço) 
     // 13 => significa 2o endereço
     // 45 => significa 3o endereco

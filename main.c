@@ -7,6 +7,9 @@
 
 int main(int argc, char**argv) {
 
+    // double tempo_gasto = 0.0;
+    // clock_t inicio = clock();
+
     srand(time(NULL));   // Inicializacao da semente para os numeros aleatorios.
 
     if (argc != 3) {
@@ -32,7 +35,7 @@ int main(int argc, char**argv) {
         instructions = generateDivisionInstructions(27, 3);
     } else if (strcmp(argv[1], "rest") == 0) {
         ramSize = atoi(argv[2]);
-        instructions = generateRestDivisionInstructions(27, 3);
+        instructions = generateRestDivisionInstructions(28, 3);
     } else if (strcmp(argv[1], "fibo") == 0) {
         ramSize = atoi(argv[2]);
         instructions = generateFibonacciInstructions(ramSize);
@@ -51,5 +54,11 @@ int main(int argc, char**argv) {
     printRAM(&machine);
     stop(&machine);
     printf("Finalizando a maquina...\n");
+
+    // clock_t fim = clock();
+    // tempo_gasto += (double) (fim - inicio) / CLOCKS_PER_SEC;
+
+    // printf("Tempo de execução: %f segundos\n", tempo_gasto);
+
     return 0;
 }

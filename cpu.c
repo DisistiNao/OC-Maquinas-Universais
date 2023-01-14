@@ -7,7 +7,7 @@ void start(Machine* machine, Instruction* instructions, int RAMSize) {
     machine->RAM.items = (float*) malloc(sizeof(float) * RAMSize);
     machine->RAM.size = RAMSize;
     for (int i=0;i<RAMSize;i++)
-        machine->RAM.items[i] = (float)rand() / RAND_MAX; // o q eh RAND_MAX
+        machine->RAM.items[i] = (float)rand() / RAND_MAX;
 }
 
 void stop(Machine* machine) {
@@ -61,84 +61,10 @@ void run(Machine* machine) {
                 printf("  > Subtraindo RAM[%d] (%f) com RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
                                 address1, RAMContent1, address2, RAMContent2, address3, result);
                 break;
-            /*
-            case 3: // Multiplicando
-                address1 = instruction.info1;
-                address2 = instruction.info2;
-                RAMContent1 = machine->RAM.items[address1];
-                RAMContent2 = machine->RAM.items[address2];
-                result = 0;
-                
-                for(int i = 0; i < RAMContent2; i++)
-                    result += RAMContent1;
-                
-                address3 = instruction.info3;
-                machine->RAM.items[address3] = result;
-                printf("  > Multiplicando RAM[%d] (%f) por RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
-                                address1, RAMContent1, address2, RAMContent2, address3, result);
-                break;
-            case 4: // Divisao
-                address1 = instruction.info1;
-                address2 = instruction.info2;
-                RAMContent1 = machine->RAM.items[address1];
-                RAMContent2 = machine->RAM.items[address2];
-                result = 0;
-                
-                float dividendo = RAMContent1;
-                if(RAMContent1 >= RAMContent2) {
-                    do {
-                        dividendo -= RAMContent2;
-                        result++;
-                    }while(dividendo - RAMContent2 >= 0);
-                }
-                
-                address3 = instruction.info3;
-                machine->RAM.items[address3] = result;
-                printf("  > Dividindo RAM[%d] (%f) por RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
-                                address1, RAMContent1, address2, RAMContent2, address3, result);
-                break;
-            case 5: // Resto da divisao
-                address1 = instruction.info1;
-                address2 = instruction.info2;
-                RAMContent1 = machine->RAM.items[address1];
-                RAMContent2 = machine->RAM.items[address2];
-                result = RAMContent1;
-                
-                if(RAMContent1 >= RAMContent2) {
-                    do{
-                        result -= RAMContent2;
-                    }while(result >= RAMContent2);
-                }
-                
-                address3 = instruction.info3;
-                machine->RAM.items[address3] = result;
-                printf("  > Resto da Divisão de RAM[%d] (%f) por RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
-                                address1, RAMContent1, address2, RAMContent2, address3, result);
-                break;
-            case 6: // Fibonacci
-                address1 = instruction.info1;
-                RAMContent1 = machine->RAM.items[address1];
-                result = fibonacci((int) RAMContent1);
-                address2 = instruction.info2;
-                machine->RAM.items[address3] = result;
-                printf("  > Fibonacci RAM[%d] (%f) e salvando na RAM[%d] (%f).\n", 
-                                address1, RAMContent1, address2, result);
-                break;
-            */
         }
         PC++;
     }
 }
-
-/*
-int fibonacci(int x)
-{
-    if(x <= 2)
-        return (x - 1);
-    else
-        return ( fibonacci(x - 1) + fibonacci(x - 2) );
-}
-*/
 
 void printRAM(Machine* machine) {
     printf("  > RAM");
